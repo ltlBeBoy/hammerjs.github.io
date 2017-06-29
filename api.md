@@ -188,29 +188,35 @@ All events that Hammer triggers all receive an event object containing the follo
 
 | Name			| Value |
 |-----------------------|-------|
+| gesture		| Object that contains the gesture data (see below). |
 | type		        | Name of the event. Like `panstart`. |
+
+
+The gesture object contains the following properties depending on the gesture.
+
+| Name			| Value |
+|-----------------------|-------|
+| angle			| Angle moved. |
+| center		| Center position for multi-touch, or just the single pointer. |
+| changedPointers	| Array with all new/moved/lost pointers. |
+| deltaTime		| Total time in ms since the first input. |
 | deltaX		| Movement of the X axis. |
 | deltaY		| Movement of the Y axis. |
-| deltaTime		| Total time in ms since the first input. |
-| distance 		| Distance moved. |
-| angle			| Angle moved. |
-| velocityX		| Velocity on the X axis, in px/ms. |
-| velocityY		| Velocity on the Y axis, in px/ms |
-| velocity		| Highest velocityX/Y value. |
 | direction		| Direction moved. Matches the `DIRECTION` constants. |
+| distance 		| Distance moved. |
+| eventType		| Event type, matches the `INPUT` constants. |
+| isFinal		| `true` when the final (last) input. |
+| isFirst		| `true` when the first input. |
 | offsetDirection	| Direction moved from it's starting point. Matches the `DIRECTION` constants. |
-| scale			| Scaling that has been done when multi-touch. 1 on a single touch. |
+| pointerType		| Primary pointer type, could be `touch`, `mouse`, `pen` or `kinect`. |
+| pointers		| Array with all pointers, including the ended pointers (`touchend`, `mouseup`). |
 | rotation		| Rotation (in deg) that has been done when multi-touch. 0 on a single touch. |
-| center		| Center position for multi-touch, or just the single pointer. |
+| scale			| Scaling that has been done when multi-touch. 1 on a single touch. |
 | srcEvent		| Source event object, type `TouchEvent`, `MouseEvent` or `PointerEvent`. |
 | target		| Target that received the event. |
-| pointerType		| Primary pointer type, could be `touch`, `mouse`, `pen` or `kinect`. |
-| eventType		| Event type, matches the `INPUT` constants. |
-| isFirst		| `true` when the first input. |
-| isFinal		| `true` when the final (last) input. |
-| pointers		| Array with all pointers, including the ended pointers (`touchend`, `mouseup`). |
-| changedPointers	| Array with all new/moved/lost pointers. |
-| preventDefault	| Reference to the `srcEvent.preventDefault()` method. Only for experts! |
+| velocity		| Highest velocityX/Y value. |
+| velocityX		| Velocity on the X axis, in px/ms. |
+| velocityY		| Velocity on the Y axis, in px/ms |
 
 ---
 
